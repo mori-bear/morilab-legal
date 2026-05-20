@@ -31,4 +31,4 @@ GitHub Pages で公開しています。
 
 ## お問い合わせ
 
-morizou0718@gmail.com
+morilab.support@gmail.com
