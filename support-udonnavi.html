@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UdonNavi サポート — MORI LAB</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+.app-desc {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px 24px;
+  margin-bottom: 32px;
+}
+.app-desc p { margin: 0; color: var(--muted); font-size: 15px; }
+
+.faq-item { margin-bottom: 24px; }
+.faq-item h3 { margin: 0 0 6px; font-size: 15px; color: var(--fg); font-weight: 600; }
+.faq-item p { margin: 0; font-size: 15px; color: var(--muted); line-height: 1.7; }
+
+.contact-box {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px 24px;
+  margin: 16px 0;
+}
+.contact-box a { color: var(--link); }
+
+.other-apps { list-style: none; padding: 0; margin: 16px 0; display: flex; flex-wrap: wrap; gap: 12px; }
+.other-apps li a {
+  color: var(--link);
+  font-size: 14px;
+  text-decoration: none;
+  padding: 8px 16px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  display: inline-block;
+}
+.other-apps li a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+<div class="container">
+  <header class="site-header">
+    <a href="index.html">← MORI LAB 法的ドキュメント</a>
+  </header>
+
+  <h1>UdonNavi サポート</h1>
+  <p class="updated">最終更新日: 2026年6月30日</p>
+
+  <div class="app-desc">
+    <p>UdonNavi は、香川県のうどん店 680 軒以上を収録した地図アプリです。近くのお店を探して、食べた記録を残し、市町村制覇を目指せます。</p>
+  </div>
+
+  <h2>お問い合わせ</h2>
+  <p>ご不明な点・不具合の報告は以下のメールアドレスまでお気軽にどうぞ。できる限り 3 営業日以内にご返信します。</p>
+  <div class="contact-box">
+    <strong>MORI LAB サポート</strong><br>
+    <a href="mailto:morilab.support@gmail.com">morilab.support@gmail.com</a>
+  </div>
+  <p>メールには以下をご記載いただくとスムーズです。</p>
+  <ul>
+    <li>お使いの iOS バージョン・iPhone の機種</li>
+    <li>アプリのバージョン（設定画面で確認できます）</li>
+    <li>店舗情報に関する場合は店名・住所</li>
+  </ul>
+
+  <h2>よくある質問（FAQ）</h2>
+
+  <div class="faq-item">
+    <h3>Q. 近くのお店が地図に表示されない</h3>
+    <p>iPhone の「設定」→「プライバシーとセキュリティ」→「位置情報サービス」→「UdonNavi」が「アプリの使用中は許可」または「常に許可」になっているかご確認ください。</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>Q. 店舗情報が古い・住所や営業時間が違う</h3>
+    <p>店名・正しい情報をサポートメールにご連絡ください。確認のうえ速やかに更新します。</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>Q. 閉店したお店が表示されている</h3>
+    <p>店名と閉店の情報をサポートまでお知らせください。確認後、次回アップデートで非表示にします。</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>Q. 食べた記録（制覇記録）が消えた</h3>
+    <p>記録はクラウド同期されます。再ログインすると復元される場合があります。それでも復元されない場合はサポートまでご連絡ください。</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>Q. 掲載されていないお店を追加してほしい</h3>
+    <p>店名・住所・営業時間をサポートメールにお送りください。内容を確認のうえ追加を検討します。</p>
+  </div>
+
+  <h2>他の MORI LAB アプリ</h2>
+  <ul class="other-apps">
+    <li><a href="support-fesfind.html">FesFind サポート</a></li>
+    <li><a href="support-lifetrace.html">LifeTrace サポート</a></li>
+  </ul>
+
+  <footer class="site-footer">
+    <p>© MORI LAB · <a href="mailto:morilab.support@gmail.com" style="color:var(--link)">morilab.support@gmail.com</a></p>
+  </footer>
+</div>
+</body>
+</html>

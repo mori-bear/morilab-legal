@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LifeTrace サポート — MORI LAB</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+.app-desc {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px 24px;
+  margin-bottom: 32px;
+}
+.app-desc p { margin: 0; color: var(--muted); font-size: 15px; }
+
+.faq-item { margin-bottom: 24px; }
+.faq-item h3 { margin: 0 0 6px; font-size: 15px; color: var(--fg); font-weight: 600; }
+.faq-item p { margin: 0; font-size: 15px; color: var(--muted); line-height: 1.7; }
+
+.contact-box {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px 24px;
+  margin: 16px 0;
+}
+.contact-box a { color: var(--link); }
+
+.other-apps { list-style: none; padding: 0; margin: 16px 0; display: flex; flex-wrap: wrap; gap: 12px; }
+.other-apps li a {
+  color: var(--link);
+  font-size: 14px;
+  text-decoration: none;
+  padding: 8px 16px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  display: inline-block;
+}
+.other-apps li a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+<div class="container">
+  <header class="site-header">
+    <a href="index.html">← MORI LAB 法的ドキュメント</a>
+  </header>
+
+  <h1>LifeTrace サポート</h1>
+  <p class="updated">最終更新日: 2026年6月30日</p>
+
+  <div class="app-desc">
+    <p>LifeTrace は、電車・新幹線・飛行機・船・バス・車など、あらゆる移動を地図に記録する iOS アプリです。人生の軌跡を可視化します。</p>
+  </div>
+
+  <h2>お問い合わせ</h2>
+  <p>ご不明な点・不具合の報告は以下のメールアドレスまでお気軽にどうぞ。できる限り 3 営業日以内にご返信します。</p>
+  <div class="contact-box">
+    <strong>MORI LAB サポート</strong><br>
+    <a href="mailto:morilab.support@gmail.com">morilab.support@gmail.com</a>
+  </div>
+  <p>メールには以下をご記載いただくとスムーズです。</p>
+  <ul>
+    <li>お使いの iOS バージョン・iPhone の機種</li>
+    <li>アプリのバージョン（設定画面で確認できます）</li>
+    <li>問題が発生した路線名・区間・状況</li>
+  </ul>
+
+  <h2>よくある質問（FAQ）</h2>
+
+  <div class="faq-item">
+    <h3>Q. 位置情報の許可は必要ですか？</h3>
+    <p>「記録」機能の一部（現在地付近の駅の候補表示）に使用します。許可しなくても手動で駅を選択して記録できます。</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>Q. 路線の形状が実際と違う・駅名が間違っている</h3>
+    <p>地図データは定期的に更新していますが、ご指摘の路線名・区間をサポートまでお知らせください。優先的に修正対応します。</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>Q. 記録したデータを端末変更後に引き継げますか？</h3>
+    <p>フレンドコード（QR コード）を使って別端末のアカウントとフレンドになることで移動履歴の共有ができます。ただし、完全な移行機能は現在開発中です。引き継ぎに関してはサポートまでご相談ください。</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>Q. 新幹線・特急の記録が正しく描画されない</h3>
+    <p>分岐のある路線（山陽新幹線のこだま停車駅など）では稀に経路の推定が異なる場合があります。路線名・乗車区間をご連絡いただければ個別に確認します。</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>Q. アプリの動作が重くなった</h3>
+    <p>記録数が増えると地図描画に時間がかかる場合があります。アプリを一度完全に終了して再起動するとキャッシュがクリアされ改善することがあります。それでも改善しない場合はサポートまでご連絡ください。</p>
+  </div>
+
+  <h2>他の MORI LAB アプリ</h2>
+  <ul class="other-apps">
+    <li><a href="support-fesfind.html">FesFind サポート</a></li>
+    <li><a href="support-udonnavi.html">UdonNavi サポート</a></li>
+  </ul>
+
+  <footer class="site-footer">
+    <p>© MORI LAB · <a href="mailto:morilab.support@gmail.com" style="color:var(--link)">morilab.support@gmail.com</a></p>
+  </footer>
+</div>
+</body>
+</html>

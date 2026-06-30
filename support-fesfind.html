@@ -5,6 +5,24 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>FesFind サポート — MORI LAB</title>
 <link rel="stylesheet" href="styles.css">
+<style>
+.faq-item { margin-bottom: 24px; }
+.faq-item h3 { margin: 0 0 6px; font-size: 15px; color: var(--fg); font-weight: 600; }
+.faq-item p { margin: 0; font-size: 15px; color: var(--muted); line-height: 1.7; }
+.faq-item ul { margin: 6px 0 0; padding-left: 20px; font-size: 15px; color: var(--muted); line-height: 1.7; }
+
+.other-apps { list-style: none; padding: 0; margin: 16px 0; display: flex; flex-wrap: wrap; gap: 12px; }
+.other-apps li a {
+  color: var(--link);
+  font-size: 14px;
+  text-decoration: none;
+  padding: 8px 16px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  display: inline-block;
+}
+.other-apps li a:hover { text-decoration: underline; }
+</style>
 </head>
 <body>
 <div class="container">
@@ -34,78 +52,77 @@
   </p>
   <p>
     <strong>メール:</strong>
-    <a href="mailto:morizou0718@gmail.com">morizou0718@gmail.com</a>
+    <a href="mailto:morilab.support@gmail.com">morilab.support@gmail.com</a>
   </p>
   <p>
     お問い合わせの際は、以下をご記載いただくとスムーズに対応できます。
   </p>
   <ul>
     <li>iOS バージョン（例: iOS 18.5）</li>
-    <li>FesFind アプリのバージョン（設定タブ → バージョン情報）</li>
+    <li>FesFind アプリのバージョン（設定タブ → アプリについて）</li>
     <li>現象の詳細（どの操作をしたときに起きたか）</li>
   </ul>
 
   <h2>よくある質問（FAQ）</h2>
 
-  <h3>Q. ログインは必須ですか？</h3>
-  <p>
-    いいえ。アプリはログインなしでも利用できます。<br>
+  <div class="faq-item">
+    <h3>Q. ログインは必須ですか？</h3>
+    <p>いいえ。アプリはログインなしでも利用できます。<br>
     ただし、アーティストのフォロー・参戦記録・通知機能を使うには、Apple または Google アカウントでのサインインが必要です。
-    サインインすることで、端末を変えてもデータを引き継ぐことができます。
-  </p>
+    サインインすることで、端末を変えてもデータを引き継ぐことができます。</p>
+  </div>
 
-  <h3>Q. フォローしたアーティストのライブ通知が届きません。</h3>
-  <p>
-    以下をご確認ください。
-  </p>
-  <ul>
-    <li>iOS の設定 → FesFind → 通知 が「許可」になっているか</li>
-    <li>アプリ内の設定タブで通知が有効になっているか</li>
-    <li>アーティストのライブ情報がデータベースに登録されているか（登録されていない場合は通知されません）</li>
+  <div class="faq-item">
+    <h3>Q. 通知（ライブリマインダー）が届きません</h3>
+    <ul>
+      <li>iPhone の「設定」→「FesFind」→「通知」が許可になっているか確認</li>
+      <li>アプリ内の「設定」タブで通知が有効になっているか確認</li>
+      <li>アーティストのライブ情報がデータベースに登録されているか（未登録の場合は通知されません）</li>
+    </ul>
+  </div>
+
+  <div class="faq-item">
+    <h3>Q. アーティストやイベントの情報が誤っています</h3>
+    <p>情報の誤り・不足があった場合は、上記メールアドレスまでご連絡ください。確認の上、速やかに修正対応します。</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>Q. フォローしたアーティストが検索で見つかりません</h3>
+    <p>まだデータベースに登録されていない可能性があります。追加ご希望のアーティスト名をメールでお知らせいただければ、できる限り対応します。</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>Q. 参戦記録はどこに保存されますか？</h3>
+    <p>参戦記録はサーバー（Supabase）に安全に保存されます。アカウントにサインインしている限り、端末を変えても記録を引き継ぐことができます。アカウントを削除した場合、関連するすべてのデータも削除されます。</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>Q. アカウントを削除したい</h3>
+    <p>「設定」タブ → 「アカウントを削除する」から削除できます。削除するとフォロー情報・参戦記録・写真などすべてのデータが消去され、復元できません。</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>Q. アプリがクラッシュします</h3>
+    <p>以下をお試しください。</p>
+    <ul>
+      <li>アプリを完全に終了してから再起動する</li>
+      <li>iOS のアップデートがある場合は更新する</li>
+      <li>FesFind を最新バージョンにアップデートする</li>
+    </ul>
+    <p style="margin-top:6px">改善しない場合は、上記メールアドレスまで状況をご連絡ください。</p>
+  </div>
+
+  <h2>他の MORI LAB アプリ</h2>
+  <ul class="other-apps">
+    <li><a href="support-lifetrace.html">LifeTrace サポート</a></li>
+    <li><a href="support-udonnavi.html">UdonNavi サポート</a></li>
   </ul>
-
-  <h3>Q. アーティストやイベントの情報が誤っています。</h3>
-  <p>
-    情報の誤り・不足があった場合は、上記メールアドレスまでご連絡ください。
-    確認の上、速やかに修正対応いたします。
-  </p>
-
-  <h3>Q. フォローしたアーティストが見つかりません。</h3>
-  <p>
-    アーティスト検索で見つからない場合、まだデータベースに登録されていない可能性があります。
-    追加ご希望のアーティスト名をメールでお知らせいただければ、できる限り対応いたします。
-  </p>
-
-  <h3>Q. 参戦記録はどこに保存されますか？</h3>
-  <p>
-    参戦記録はサーバー（Supabase）に安全に保存されます。
-    アカウントにサインインしている限り、端末を変えても記録を引き継ぐことができます。
-    アカウントを削除した場合、関連するすべてのデータも削除されます。
-  </p>
-
-  <h3>Q. アカウントを削除したい。</h3>
-  <p>
-    アカウントの削除は、設定タブ → マイページ → 「アカウントを削除」から行えます。<br>
-    削除するとフォロー情報・参戦記録・写真などすべてのデータが消去され、復元できません。
-  </p>
-
-  <h3>Q. アプリがクラッシュします。</h3>
-  <p>
-    以下をお試しください。
-  </p>
-  <ul>
-    <li>アプリを完全に終了してから再起動する</li>
-    <li>iOS のアップデートがある場合は更新する</li>
-    <li>FesFind を最新バージョンにアップデートする</li>
-  </ul>
-  <p>改善しない場合は、上記メールアドレスまで状況をご連絡ください。</p>
 
   <footer class="site-footer">
-    <p>© 2026 MORI LAB. All rights reserved.</p>
+    <p>© MORI LAB · <a href="mailto:morilab.support@gmail.com" style="color:var(--link)">morilab.support@gmail.com</a></p>
     <p>
-      <a href="privacy-fesfind.html">プライバシーポリシー</a> ·
-      <a href="terms-fesfind.html">利用規約</a> ·
-      <a href="tokushoho-fesfind.html">特定商取引法に基づく表記</a>
+      <a href="privacy-fesfind.html" style="color:var(--link)">プライバシーポリシー</a> ·
+      <a href="terms-fesfind.html" style="color:var(--link)">利用規約</a>
     </p>
   </footer>
 </div>
