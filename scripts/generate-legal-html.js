@@ -18,7 +18,7 @@ const ROOT = path.resolve(__dirname, "..");
 
 const developerName = "MORI LAB";
 const contactEmail = "morilab.support@gmail.com";
-const lastUpdated = "2026年5月27日";
+const lastUpdated = "2026年8月14日";
 const legalPagesBaseURL = "https://mori-bear.github.io/morilab-legal/";
 
 // MARK: - 共通ビルダー（LegalTexts.swift のミラー）
@@ -173,9 +173,24 @@ ${appSpecificSections}
 Web:    ${legalPagesBaseURL}`;
 }
 
-function buildTokushoho(appName, hasSubscription) {
-  if (hasSubscription) {
-    return `特定商取引法に基づく表記
+// salesType: "subscription" | "consumable"（LegalTexts.SalesType のミラー。
+// consumable は priceList で特商法の「販売価格」欄に商品名と価格を明示する）
+function buildTokushoho(appName, salesType, minOS, appSpecificSections = "", priceList = "") {
+  let price, refund, subscriptionLines;
+  if (salesType === "subscription") {
+    price = "各サブスクリプションプランの価格はアプリ内に表示される金額に準じます";
+    refund = "App Store のサブスクリプション管理ポリシーに準拠します。デジタルコンテンツの性質上、原則として返金は行いません。";
+    subscriptionLines = `サービス提供期間：購入時に選択したプランの期間（1か月または1年）ごとの継続課金です
+自動更新について：期間終了日の24時間以上前に解約しない限り自動的に更新され、更新時に Apple ID に登録されたお支払い方法へ請求されます
+無料トライアルについて：無料トライアルが提供される場合、トライアル期間終了の24時間前までに解約しない限り、自動的に有料プランへ移行します
+解約方法：iOS の「設定」または App Store の「サブスクリプション」画面からいつでも解約できます。解約後も支払い済み期間の終了までサービスをご利用いただけます
+`;
+  } else {
+    price = `アプリ内の各商品ページに表示（${priceList}）`;
+    refund = "App Store のポリシーに準拠します。デジタルコンテンツの性質上、原則として返金は行いません。";
+    subscriptionLines = "";
+  }
+  return `特定商取引法に基づく表記
 最終更新日: ${lastUpdated}
 
 本表記は、${developerName} が提供する「${appName}」における特定商取引法に基づく表記を定めるものです。
@@ -184,28 +199,33 @@ function buildTokushoho(appName, hasSubscription) {
 運営責任者：非公開（開示請求はmorilab.support@gmail.comまで）
 所在地：非公開（開示請求はmorilab.support@gmail.comまで）
 連絡先：${contactEmail}
-販売価格：各サブスクリプションプランの価格はアプリ内に表示される金額に準じます
+販売価格：${price}
 支払方法：Apple App Store 経由（Apple ID に登録されたお支払い方法）
 支払時期：購入確定時
 サービス提供時期：決済完了後、即時
-返品・キャンセル：App Store のサブスクリプション管理ポリシーに準拠します。デジタルコンテンツの性質上、原則として返金は行いません。
-動作環境：iOS 18.0 以上`;
-  }
-  return `特定商取引法に基づく表記
-最終更新日: ${lastUpdated}
+${subscriptionLines}返品・キャンセル：${refund}
+動作環境：iOS ${minOS} 以上
 
-本アプリ「${appName}」は無料アプリのため、有償商品の販売は行っていません。
+${appSpecificSections}`;
+}
 
-販売業者：${developerName}
-連絡先：${contactEmail}
-動作環境：iOS 18.0 以上
+const lifeTraceTokushohoSections = `■ 提供プラン（LifeTrace Premium）
+
+・月額プラン：500円/月
+・年額プラン：5,000円/年
+・いずれも初回1週間の無料トライアル付き
+・表示価格は税込です。実際の請求額は App Store に表示される金額に準じます。`;
+
+const fesFindTokushohoSections = `■ App 内課金について（開発を応援する）
+
+本アプリの App 内課金は、開発の継続を支援するための任意の「投げ銭」です。購入によって解放される機能や付与される特典はありません。
+金額の異なる複数の商品を用意しており、いずれも消費型のため何度でも購入できます。
 
 ■ アフィリエイトリンクについて
 
 本アプリには、イープラス（e+）・ぴあ・ローソンチケット（ローチケ）へのアフィリエイトリンクが含まれます。リンク経由でチケットを購入された場合、${developerName} が各サービスから所定の報酬を受け取る場合があります。
 
 チケット販売・購入に関する契約は、各販売サービスとユーザー間で成立するものであり、${developerName} はその内容について責任を負いません。`;
-}
 
 // MARK: - アプリ別セクション（LegalTexts.swift と一致させること）
 
@@ -226,7 +246,8 @@ const udonNaviTermsSections = `■ 口コミ投稿ルール（UdonNavi）
 ・著作権・肖像権を侵害する画像の投稿を禁止します。
 ・宣伝・営業目的の投稿、スパム投稿を禁止します。
 ・投稿された口コミは MORI LAB の判断で削除する場合があります。
-・違反が繰り返された場合、アカウントの利用を停止することがあります。`;
+・違反が繰り返された場合、アカウントの利用を停止することがあります。
+・本アプリはユーザー生成コンテンツを含みます。不適切なコンテンツ・迷惑行為は一切許容しません。違反を発見した場合は通報機能をご利用ください。`;
 
 const lifeTracePrivacySections = `■ アプリ固有の取得情報（LifeTrace）
 
@@ -240,7 +261,16 @@ const lifeTracePrivacySections = `■ アプリ固有の取得情報（LifeTrace
 3. 交通機関データ
    ユーザーが入力または自動判定された交通手段（電車・バス・徒歩等）、乗降駅、路線情報を保存します。`;
 
-const lifeTraceTermsSections = `■ 位置情報の継続的取得への同意（LifeTrace）
+const lifeTraceTermsSections = `■ 禁止事項（フレンド機能・ユーザー間交流）
+
+・他のユーザーに対する迷惑行為、嫌がらせ、誹謗中傷、脅迫を禁止します。
+・スパム、宣伝・営業目的の利用、なりすましを禁止します。
+・不適切・違法・公序良俗に反する内容の登録・送信を禁止します。
+・他者の権利（プライバシー・肖像権・著作権等）を侵害する行為を禁止します。
+・不適切なユーザーは、プロフィール画面から「通報」および「ブロック」が行えます。運営は通報内容を確認し、規約違反のユーザーに対して利用停止等の措置を取ることがあります。
+・本アプリはユーザー生成コンテンツを含みます。不適切なコンテンツ・迷惑行為は一切許容しません。違反を発見した場合は通報機能をご利用ください。
+
+■ 位置情報の継続的取得への同意（LifeTrace）
 
 ・本アプリの中核機能を提供するため、バックグラウンドを含めた位置情報の継続的取得を行います。
 ・本機能を有効にすることで、端末のバッテリー消費が増加する場合があります。
@@ -264,7 +294,15 @@ const fesFindPrivacySections = `■ アプリ固有の取得情報（FesFind）
    ・ぴあ
    ・ローソンチケット（ローチケ）`;
 
-const fesFindTermsSections = `■ アフィリエイトリンクについて（FesFind）
+const fesFindTermsSections = `■ ユーザー投稿コンテンツ・迷惑行為の禁止（FesFind）
+
+・本アプリには、セットリスト投稿・参戦記録・写真・プロフィール（表示名・アイコン）等のユーザー生成コンテンツ（UGC）が含まれます。
+・当社は、不適切・攻撃的・わいせつ・違法・公序良俗に反するコンテンツ、および他のユーザーへの迷惑行為・嫌がらせ・誹謗中傷・スパム・なりすましを一切許容しません（ゼロトレランス）。
+・本アプリを利用するには、上記の禁止事項に同意していただく必要があります。同意いただけない場合は本アプリをご利用いただけません。
+・不適切なコンテンツは、各コンテンツに表示される「通報」から報告できます。また、迷惑なユーザーはプロフィール画面から「ブロック」でき、ブロック以降そのユーザーのコンテンツは自分の画面に表示されなくなります。
+・運営は通報・ブロックの内容を確認し、規約違反が認められた場合、通報受領から24時間以内を目安に、該当コンテンツの削除および違反ユーザーの利用停止・排除等の措置を行います。
+
+■ アフィリエイトリンクについて（FesFind）
 
 ・本アプリには、イープラス（e+）・ぴあ・ローソンチケット（ローチケ）へのアフィリエイトリンクが含まれています。
 ・リンク経由でチケットを購入された場合、MORI LAB が各サービスから所定の報酬を受け取る場合があります。
@@ -326,12 +364,18 @@ function renderPage(fullText) {
 // MARK: - 出力定義
 
 const apps = {
-  udonnavi: { name: "UdonNavi", bundleId: "com.morilab.udonnavi", subscription: true,
-    privacySections: udonNaviPrivacySections, termsSections: udonNaviTermsSections },
-  lifetrace: { name: "LifeTrace", bundleId: "com.morilab.lifetrace", subscription: true,
-    privacySections: lifeTracePrivacySections, termsSections: lifeTraceTermsSections },
-  fesfind: { name: "FesFind", bundleId: "com.morilab.fesfind", subscription: false,
-    privacySections: fesFindPrivacySections, termsSections: fesFindTermsSections },
+  udonnavi: { name: "UdonNavi", bundleId: "com.morilab.udonnavi",
+    privacySections: udonNaviPrivacySections, termsSections: udonNaviTermsSections,
+    tokushoho: { salesType: "subscription", minOS: "26.0" } },
+  lifetrace: { name: "LifeTrace", bundleId: "com.morilab.lifetrace",
+    privacySections: lifeTracePrivacySections, termsSections: lifeTraceTermsSections,
+    tokushoho: { salesType: "subscription", minOS: "17.0",
+      sections: lifeTraceTokushohoSections } },
+  fesfind: { name: "FesFind", bundleId: "com.morilab.fesfind",
+    privacySections: fesFindPrivacySections, termsSections: fesFindTermsSections,
+    tokushoho: { salesType: "consumable", minOS: "18.0",
+      sections: fesFindTokushohoSections,
+      priceList: "投げ銭：クッキー ¥200／紅茶 ¥400／ケーキ ¥500" } },
 };
 
 const files = [];
@@ -341,9 +385,10 @@ for (const [slug, a] of Object.entries(apps)) {
     renderPage(buildPrivacyPolicy(a.name, a.bundleId, a.privacySections))]);
   files.push([`terms-${slug}.html`,
     renderPage(buildTermsOfService(a.name, a.bundleId, a.termsSections))]);
-  if (a.subscription) {
+  if (a.tokushoho) {
     files.push([`tokushoho-${slug}.html`,
-      renderPage(buildTokushoho(a.name, a.subscription))]);
+      renderPage(buildTokushoho(a.name, a.tokushoho.salesType, a.tokushoho.minOS,
+        a.tokushoho.sections || "", a.tokushoho.priceList || ""))]);
   }
 }
 
@@ -384,6 +429,7 @@ const indexHtml = `<!DOCTYPE html>
       <div class="doc-links">
         <a href="terms-fesfind.html">利用規約</a>
         <a href="privacy-fesfind.html">プライバシーポリシー</a>
+        <a href="tokushoho-fesfind.html">特定商取引法に基づく表記</a>
       </div>
     </li>
     <li>
