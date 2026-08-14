@@ -387,7 +387,7 @@ const apps = {
     privacySections: fesFindPrivacySections, termsSections: fesFindTermsSections,
     tokushoho: { salesType: "consumable", minOS: "18.0",
       sections: fesFindTokushohoSections,
-      priceList: "投げ銭：クッキー ¥200／紅茶 ¥400／ケーキ ¥500" } },
+      priceList: "投げ銭：クッキー ¥200／緑茶 ¥400／ケーキ ¥500" } },
 };
 
 const files = [];
