@@ -8,21 +8,25 @@ GitHub Pages で公開しています。
 
 ```
 /
-├── index.html              トップページ
-├── styles.css              共通スタイル
-├── lifetrace/
-│   ├── terms.html
-│   ├── privacy.html
-│   └── tokushoho.html
-├── teaarc/
-│   ├── terms.html
-│   ├── privacy.html
-│   └── tokushoho.html
-└── udonnavi/
+├── index.html                  トップページ
+├── styles.css                  共通スタイル
+├── terms-<app>.html            利用規約 (udonnavi / lifetrace / fesfind)
+├── privacy-<app>.html          プライバシーポリシー (同上)
+├── tokushoho-<app>.html        特定商取引法に基づく表記 (同上)
+└── teaarc/
     ├── terms.html
     ├── privacy.html
     └── tokushoho.html
 ```
+
+tea-arcのみ旧来のサブディレクトリ構成のまま（`teaarc/`）。
+他3アプリは2026-05-28に `<page>-<app>.html` 形式へ統一済み。
+
+## このリポジトリについて
+
+正本は `mori-lab-dev/morilab-legal`。本リポジトリ(`mori-bear/morilab-legal`)は
+旧URL(mori-bear.github.io/morilab-legal/)を並行して生かすための維持用ミラー
+（2026-09-03 移管）。旧版アプリの配信終了後、削除を検討する。
 
 ## 内容の出所
 
